@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
-    private Vector3 movementVector;
-    [SerializeField] private float speed;
+    [SerializeField] private float blastPower;
+    private bool isactivated;
+    private float lifeTime = 5;
+    private Rigidbody rb;
+
     private void Start()
     {
-        movementVector = new Vector3(0, 1, 1);
+        rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.Translate(Vector3.forward * speed);
+
+        if (!isactivated)
+        {
+            rb.velocity = PlayerManagement.Instance.shotPoint.transform.right * -1 * blastPower;
+            isactivated = true;
+        }
+        if(lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        lifeTime -= Time.deltaTime;
     }
 }

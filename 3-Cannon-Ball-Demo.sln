@@ -1,7 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{6EC0B5D5-6A2A-11DC-7C42-199225B9E2F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Scripts", "Boxophobic.Utils.Scripts.csproj", "{DE2AAC90-CD02-9AE0-292A-962C95CC88CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Editor", "Boxophobic.Utils.Editor.csproj", "{60E0F5D3-121F-35B6-0063-C9858214A831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.SkyboxCubemapExtended.Editor", "Boxophobic.SkyboxCubemapExtended.Editor.csproj", "{EF157EDA-8B7F-68C8-C920-8FC564D5C30A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +19,18 @@ Global
 		{6EC0B5D5-6A2A-11DC-7C42-199225B9E2F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC0B5D5-6A2A-11DC-7C42-199225B9E2F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EC0B5D5-6A2A-11DC-7C42-199225B9E2F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE2AAC90-CD02-9AE0-292A-962C95CC88CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2AAC90-CD02-9AE0-292A-962C95CC88CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2AAC90-CD02-9AE0-292A-962C95CC88CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2AAC90-CD02-9AE0-292A-962C95CC88CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E0F5D3-121F-35B6-0063-C9858214A831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E0F5D3-121F-35B6-0063-C9858214A831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E0F5D3-121F-35B6-0063-C9858214A831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E0F5D3-121F-35B6-0063-C9858214A831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF157EDA-8B7F-68C8-C920-8FC564D5C30A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF157EDA-8B7F-68C8-C920-8FC564D5C30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF157EDA-8B7F-68C8-C920-8FC564D5C30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF157EDA-8B7F-68C8-C920-8FC564D5C30A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
