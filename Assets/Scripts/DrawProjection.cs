@@ -24,7 +24,6 @@ public class DrawProjection : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
     }
 
-
     void Update()
     {
         lineRenderer.positionCount = (int)numPoints;
@@ -45,7 +44,6 @@ public class DrawProjection : MonoBehaviour
                 break;
             }
         }
-
         lineRenderer.SetPositions(points.ToArray());
     }
 }

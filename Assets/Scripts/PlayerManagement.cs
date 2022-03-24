@@ -13,6 +13,7 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
     private Vector3 mouseDeltaPos = Vector3.zero;
 
     [SerializeField] private float sensivitiy;
+    [SerializeField] private int maxShotCount;
 
     [SerializeField] private AudioSource camSound;
     [SerializeField] private AudioClip explosionAudio;
@@ -27,14 +28,24 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
     {
         if (!UIManager.Instance.isPaused)
         {
-            if (Input.GetMouseButtonDown(0))
+            UIManager.Instance.ShotCountText(maxShotCount);
+
+            if (Input.GetMouseButtonDown(0) && maxShotCount > 0)
             {
+                maxShotCount --;
+                UIManager.Instance.ShotCountText(maxShotCount);
+
                 Instantiate(cannonBall, shotPoint.position, cannonMoveY.transform.rotation * Quaternion.Euler(0, 0, 0));
                 camSound.PlayOneShot(explosionAudio);
             }
 
+            if(maxShotCount <= 0 && GameManager.Instance.progress < 100)
+            {
+                Invoke("CallRestartUI", 5f);
+            }
+
             //cannon's aim (rotating)
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 mouseDeltaPos = Input.mousePosition - mousePrevPosition;
 
@@ -54,4 +65,10 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
             mousePrevPosition = Input.mousePosition;
         }
     }
+
+    private void CallRestartUI()
+    {
+        UIManager.Instance.RestartButtonUI();
+    }
+
 }

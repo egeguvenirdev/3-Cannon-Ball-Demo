@@ -20,7 +20,7 @@ public class ExplosiveBox : MonoBehaviour
         if (collision.gameObject.tag == "Ball")
         {
             camSound.PlayOneShot(explosionAudio);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             Destroy(collision.gameObject);
             Instantiate(blowUp, transform.position, transform.rotation);
 

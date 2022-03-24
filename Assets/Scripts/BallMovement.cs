@@ -17,7 +17,6 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (!isactivated)
         {
             rb.velocity = PlayerManagement.Instance.shotPoint.transform.right * -1 * blastPower;
@@ -27,7 +26,6 @@ public class BallMovement : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         lifeTime -= Time.deltaTime;
     }
 }
