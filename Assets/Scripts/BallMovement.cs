@@ -5,27 +5,60 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] private float blastPower;
-    private bool isactivated;
     private float lifeTime = 5;
-    private Rigidbody rb;
+
+    private Collider[] ragDollColliders;
+    private Rigidbody[] limbsRigidbodies;
+    [SerializeField] private Rigidbody hip;
 
     private void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
-    }
+        GetRagdollBits();
+        OpenRagdoll();
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isactivated)
+        foreach (Rigidbody childRB in limbsRigidbodies)
         {
-            rb.velocity = PlayerManagement.Instance.shotPoint.transform.right * -1 * blastPower;
-            isactivated = true;
+            childRB.velocity = PlayerManagement.Instance.shotPoint.transform.right * -1 * blastPower;
         }
-        if(lifeTime <= 0)
+        Debug.Log(hip);
+    }
+    
+    private void SetActiveFalse()
+    {
+        if (lifeTime <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         lifeTime -= Time.deltaTime;
+    }
+
+    public void GetRagdollBits()
+    {
+        ragDollColliders = gameObject.GetComponentsInChildren<Collider>();
+        limbsRigidbodies = gameObject.GetComponentsInChildren<Rigidbody>();
+    }
+
+    public void CloseRagdoll()
+    {
+        foreach (Collider col in ragDollColliders)
+        {
+            col.enabled = false;
+        }
+        foreach (Rigidbody rigid in limbsRigidbodies)
+        {
+            rigid.isKinematic = true;
+        }
+    }
+
+    public void OpenRagdoll()
+    {
+        foreach (Collider col in ragDollColliders)
+        {
+            col.enabled = true;
+        }
+        foreach (Rigidbody rigid in limbsRigidbodies)
+        {
+            rigid.isKinematic = false;
+        }
     }
 }

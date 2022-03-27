@@ -73,7 +73,6 @@ public class UIManager : MonoSingleton<UIManager>
     {
         if (!isPaused) //if the game not stopped
         {
-            Debug.Log("next lv ui");
             nextLvMenuUI.SetActive(true);
             isPaused = true;          
         }

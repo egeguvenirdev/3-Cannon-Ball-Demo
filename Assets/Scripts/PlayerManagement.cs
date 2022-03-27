@@ -7,7 +7,6 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
     [SerializeField] private GameObject cannonMoveY;
     [SerializeField] private GameObject cannonMoveX;
     [SerializeField] public Transform shotPoint;
-    [SerializeField] private GameObject cannonBall;
 
     private Vector3 mousePrevPosition = Vector3.zero;
     private Vector3 mouseDeltaPos = Vector3.zero;
@@ -35,7 +34,11 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
                 maxShotCount --;
                 UIManager.Instance.ShotCountText(maxShotCount);
 
-                Instantiate(cannonBall, shotPoint.position, cannonMoveY.transform.rotation * Quaternion.Euler(0, 0, 0));
+                var ball = ObjectPooler.Instance.GetPooledObject("Ball");
+                ball.transform.position = shotPoint.transform.position;
+                ball.transform.rotation = Quaternion.Euler(0, 0, 0);
+                ball.SetActive(true);
+
                 camSound.PlayOneShot(explosionAudio);
             }
 

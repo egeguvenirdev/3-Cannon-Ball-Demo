@@ -9,6 +9,9 @@ TagManager:
   - Platform
   - PlayerPlatform
   - Ball
+  - Water
+  - WaterEffect
+  - BlowupEffect
   layers:
   - Default
   - TransparentFX

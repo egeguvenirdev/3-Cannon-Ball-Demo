@@ -21,7 +21,6 @@ public class GameManager : MonoSingleton<GameManager>
         progress = (destroyedBoxCount / totalBox) * 100;
 
         UIManager.Instance.SetProgress((int)progress);
-        Debug.Log(progress);
 
         if (progress >= 100) 
         {
