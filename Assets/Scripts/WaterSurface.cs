@@ -18,6 +18,5 @@ public class WaterSurface : MonoBehaviour
             GameManager.Instance.ReduceBoxCount(1);
             collision.gameObject.SetActive(false);
         }
-
     }
 }

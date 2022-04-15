@@ -11,8 +11,10 @@ public class GameManager : MonoSingleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        GameObject[] boxes = GameObject.FindGameObjectsWithTag("SafeBox");
-        totalBox = boxes.Length;
+        GameObject[] safeboxes = GameObject.FindGameObjectsWithTag("SafeBox");
+        GameObject[] explosiveBoxes = GameObject.FindGameObjectsWithTag("SafeBox");
+        totalBox = safeboxes.Length;
+        totalBox += explosiveBoxes.Length;
     }
 
     public void ReduceBoxCount(int i)

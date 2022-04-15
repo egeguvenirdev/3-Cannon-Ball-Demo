@@ -29,7 +29,8 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
         {
             UIManager.Instance.ShotCountText(maxShotCount);
 
-            if (Input.GetMouseButtonDown(0) && maxShotCount > 0)
+            //shooting doll
+            if (Input.GetMouseButtonUp(0) && maxShotCount > 0)
             {
                 maxShotCount --;
                 UIManager.Instance.ShotCountText(maxShotCount);
@@ -42,13 +43,14 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
                 camSound.PlayOneShot(explosionAudio);
             }
 
+            //if 
             if(maxShotCount <= 0 && GameManager.Instance.progress < 100)
             {
                 Invoke("CallRestartUI", 5f);
             }
 
             //cannon's aim (rotating)
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(0))
             {
                 mouseDeltaPos = Input.mousePosition - mousePrevPosition;
 
@@ -68,10 +70,4 @@ public class PlayerManagement : MonoSingleton<PlayerManagement>
             mousePrevPosition = Input.mousePosition;
         }
     }
-
-    private void CallRestartUI()
-    {
-        UIManager.Instance.RestartButtonUI();
-    }
-
 }
